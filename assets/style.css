@@ -1,0 +1,212 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  overflow: hidden;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.btn-link:hover,
+.btn-link.active {
+  background: rgba(255, 255, 255, 0.6);
+}
+.form-control {
+  background: rgba(255, 255, 255, 1);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+.form-control:focus,
+.btn-link :focus {
+  outline: none;
+}
+.form-control::placeholder {
+  color: grey;
+}
+.form-control-icon {
+  position: relative;
+}
+.form-control-icon svg {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: gray;
+}
+.form-control-icon input {
+  padding-left: 2.25rem;
+}
+#app {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to right top,
+    rgba(78, 148, 228, 0.9),
+    rgba(78, 148, 228, 0.2)
+  );
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#circle-1,
+#circle-2 {
+  background: linear-gradient(
+    to right top,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  position: absolute;
+  z-index: 1;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+#circle-1 {
+  bottom: 10%;
+  left: 6%;
+}
+
+#circle-2 {
+  top: 6%;
+  right: 18%;
+}
+
+#main-content {
+  width: 80%;
+  height: 60%;
+  background: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(
+    to right top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2)
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  overflow: hidden;
+}
+
+#main-content .todo-sidebar {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 20px;
+}
+#main-content .todo-sidebar h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-left: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgrey;
+  line-height: 1em;
+}
+#main-content .todo-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#main-content .todo-sidebar ul li {
+  margin-top: 0.75rem;
+}
+#main-content .todo-sidebar ul li button {
+  width: 100%;
+  text-align: left;
+  font-weight: normal;
+}
+#main-content .todo-content-area {
+  padding: 1rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  box-sizing: content-box;
+  margin-right: -17px;
+  margin-bottom: -17px;
+}
+#main-content .todo-content-area .create-todo-area {
+  margin-bottom: 1rem;
+  position: sticky;
+  top: -1rem;
+  left: 0;
+  z-index: 3;
+  transition: all 0.3s ease-in-out;
+}
+#main-content .todo-content-area .create-todo-area input {
+  width: 100%;
+  box-sizing: border-box;
+}
+#main-content .todo-content-area .display-todo-area {
+  flex: 1 1 auto;
+}
+#main-content .todo-content-area .display-todo-area .todo-item {
+  background: rgba(255, 255, 255, 0.705);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#main-content .todo-content-area .display-todo-area .todo-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  display: none;
+  backdrop-filter: blur(2px);
+}
+#main-content .todo-content-area .display-todo-area .todo-item.editing::after {
+  display: block;
+}
+#main-content
+  .todo-content-area
+  .display-todo-area
+  .todo-item:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+#main-content .todo-content-area .display-todo-area .todo-item.completed p {
+  text-decoration: line-through;
+}
+#main-content
+  .todo-content-area
+  .display-todo-area
+  .todo-item
+  .btn-todo-delete {
+  background: rgba(255, 0, 0, 0.712);
+  color: white;
+  margin-left: auto;
+}
+#main-content .todo-content-area .display-todo-area .todo-item .btn-todo-edit {
+  background: rgba(224, 203, 13, 0.829);
+  color: white;
+  margin-left: 0.5rem;
+}
+#main-content
+  .todo-content-area
+  .display-todo-area
+  .todo-item
+  .btn-todo-complete {
+  background: rgba(49, 197, 12, 0.753);
+  color: white;
+  margin-left: 0.5rem;
+}
